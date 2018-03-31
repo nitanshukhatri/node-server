@@ -23,12 +23,13 @@ exports.index = function(req, res) {
 /**
  * Creates a new user
  */
-exports.create = function (req, res, next) {
+exports.create = function (req, res, next) { 
   var newUser = new User(req.body);
   newUser.provider = 'local';
-  newUser.save(function(err, user) {
+  
+  newUser.save(function(err, user) { console.log("err", err); console.log("user", user);
     if (err) return validationError(res, err);
-    var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
+    var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresIn: 60*5 });
     res.json({ token: token });
   });
 };

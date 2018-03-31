@@ -1,9 +1,8 @@
 
 var Post = require('./post.model');
 var mongoose = require('mongoose');
-var auth = require('../../auth/auth.service');
-var common = require('../common');
-//var User = require('./user/user.model');
+var config = require('./../../config/environment');
+var common = require('./../common');
 
 exports.create = function(req, res) {
     if (req.body.title == '') {

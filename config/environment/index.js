@@ -35,9 +35,7 @@ var all = {
   // MongoDB connection options
   mongo: {
     options: {
-      db: {
-        safe: true
-      }
+      safe: true
     }
   },
 
@@ -59,7 +57,7 @@ var all = {
     callbackURL:  (process.env.DOMAIN || '') + '/auth/google/callback'
   }
 };
-
+console.log("all", process.env.NODE_ENV);
 // Export the config object based on the NODE_ENV
 // ==============================================
 module.exports = _.merge(
